@@ -9,7 +9,7 @@ const path = require('path');
 const app = express()
 app.use("Collection",express.static(path.join(__dirname, 'Collection')))
 
-app.use(cors({credentials:true,origin:"http://16.171.37.129:3000", methods:["GET","POST"]}))
+app.use(cors({credentials:true,origin:"http://51.20.17.225:3000", methods:["GET","POST"]}))
 app.use(express.json())
 app.use(cookieParser())
 // middleware
