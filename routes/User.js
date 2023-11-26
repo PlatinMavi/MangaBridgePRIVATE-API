@@ -18,7 +18,7 @@ router.post('/login', async (req, res) => {
                 if (err) throw err;
                 res.cookie('token', token, {
                     httpOnly: true,
-                    // secure: process.env.NODE_ENV === 'production', // Set to true in production
+                    secure: true, // Set to true in production
                     sameSite: 'None', // Add SameSite=None attribute
                 });
                 res.json({
@@ -52,7 +52,7 @@ router.post('/register', async (req, res) => {
 router.post('/logout', (req, res) => {
     res.cookie('token', '', {
         httpOnly: true,
-        // secure: process.env.NODE_ENV === 'production', // Set to true in production
+        secure: true, // Set to true in production
         sameSite: 'None', // Add SameSite=None attribute
         expires: new Date(0), // Set expiration date in the past to delete the cookie
     });
