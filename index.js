@@ -9,7 +9,17 @@ const path = require('path');
 const app = express()
 app.use("Collection",express.static(path.join(__dirname, 'Collection')))
 
-app.use(cors({credentials:true,origin:["http://51.20.17.225","http://mangabridge.com"], methods:["GET","POST"]}))
+app.use(cors({credentials:true,origin:
+    [
+        "http://51.20.17.225",
+        "http://mangabridge.com",
+        "https://mangabridge.com",
+        "http://api.mangabridge.com",
+        "https://api.mangabridge.com",
+        "http://mangabridge.xyz",
+        "https://api.mangabridge.xyz"
+    ]
+    , methods:["GET","POST"]}))
 app.use(express.json())
 app.use(cookieParser())
 // middleware
@@ -39,6 +49,6 @@ connection.once("open",()=>{
 })
 // database
 
-app.listen("4000", ()=>{
-    console.log("4000 port on")
+app.listen(80, ()=>{
+    console.log("80 port on")
 })
